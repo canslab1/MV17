@@ -24,7 +24,7 @@ The final influence score is: **IF = E × L**
 
 - **Two-step framework** — Combines global diversity and local topology into a single influence score.
 - **SIR simulation** — Compare spreading capability of nodes ranked by different centrality measures.
-- **Multiple centrality metrics** — Degree, k-core, betweenness, closeness, PageRank, clustering coefficient, k-core entropy, neighbor-core, neighbor-degree, and MV17.
+- **Multiple centrality metrics** — Degree, k-core, betweenness, approximate betweenness, closeness, PageRank, clustering coefficient, k-core entropy, neighbor-core, neighbor-degree, and MV17.
 - **Dual interface** — PySide6 GUI with 5 functional tabs and a CLI batch experiment runner.
 - **Background processing** — All heavy computations run in worker threads with progress feedback.
 - **Batch analysis** — Process multiple networks and compare results in a single run.
@@ -98,6 +98,8 @@ The following 13 networks were used in the published experiments. All datasets a
 | Other | NetScience | 379 | 914 | `classical network/netscience_gcc.txt` |
 | Other | PolBlogs | 1,222 | 16,714 | `classical network/polblogs_gcc.txt` |
 
+> **Note:** Jazz-Musicians is classified as "Social" following the published paper's Table 1, though the dataset file resides in the `collaboration network/` directory.
+
 ### Additional Datasets
 
 | Category | Network | File |
@@ -119,7 +121,9 @@ The following 13 networks were used in the published experiments. All datasets a
 | Theoretical | Regular | `theoretical network/regular_n=100_k=5.txt` |
 | Theoretical | Small-World | `theoretical network/sw_n=100_k=5_p=0.1.txt` |
 
-All edgelist files use space-separated integer node pairs, one edge per line.
+> **Note:** Some networks include an additional raw edgelist file (without the `_gcc` suffix) representing the original network before GCC extraction. These files are provided for reference but are not used by the GUI or CLI tools.
+
+All edgelist files use whitespace-separated integer node pairs, one edge per line.
 
 ### Precomputed Auxiliary Files
 
@@ -172,8 +176,8 @@ MV17/
 │       ├── __init__.py
 │       ├── matplotlib_canvas.py   # Matplotlib-Qt integration
 │       └── progress_dialog.py     # Progress dialog for long tasks
-├── edgelist/                   # Network datasets (120 files)
-│   ├── classical network/      # 9 networks + auxiliary files
+├── edgelist/                   # Network datasets (118 files)
+│   ├── classical network/      # 8 networks + auxiliary files
 │   ├── collaboration network/  # 6 networks + auxiliary files
 │   ├── communication network/  # 4 networks + auxiliary files
 │   ├── other network/          # 7 networks + auxiliary files
@@ -186,6 +190,12 @@ MV17/
 ├── CHANGELOG.md
 └── .gitignore
 ```
+
+## Troubleshooting
+
+- **PySide6 fails to install** — Ensure you have Python 3.10+ and pip 21+. On Linux, you may need `sudo apt install qt6-base-dev`.
+- **`Cannot load backend 'QtAgg'`** — Reinstall PySide6: `pip install --force-reinstall PySide6`.
+- **Betweenness is very slow** — For networks with N > 5,000, use "Approx. Betweenness" instead.
 
 ## Authors
 

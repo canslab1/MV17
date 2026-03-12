@@ -39,5 +39,11 @@ Homepage = "https://github.com/canslab1/MV17"
 Repository = "https://github.com/canslab1/MV17"
 Issues = "https://github.com/canslab1/MV17/issues"
 
+[project.scripts]
+mv17 = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "main_window"]
+
 [tool.setuptools.packages.find]
 include = ["gui_app*"]

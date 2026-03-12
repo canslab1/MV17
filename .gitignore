@@ -37,6 +37,17 @@ Thumbs.db
 # ===== Claude Code =====
 .claude/
 
+# ===== Testing / Type-checking =====
+.pytest_cache/
+.mypy_cache/
+.tox/
+htmlcov/
+.coverage
+*.log
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+
 # ===== Virtual Environment =====
 venv/
 .venv/
