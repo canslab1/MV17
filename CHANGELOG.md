@@ -14,7 +14,7 @@ Complete rewrite from Python 2/3 command-line scripts to Python 3 GUI applicatio
 - `NetworkManager` as shared data layer with Qt Signal/Slot communication
 - `algorithm_adapter.py` encapsulating all algorithms with NetworkX 3.x compatibility
 - `run_sir_batch.py` for command-line batch SIR experiments
-- 29 real-world and 4 theoretical network datasets
+- 25 real-world and 4 theoretical network datasets (29 edgelist files with precomputed auxiliary data)
 
 ### Changed
 - All legacy `util/` modules replaced with unified `algorithm_adapter.py`

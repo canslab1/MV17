@@ -24,7 +24,7 @@ The final influence score is: **IF = E × L**
 
 - **Two-step framework** — Combines global diversity and local topology into a single influence score.
 - **SIR simulation** — Compare spreading capability of nodes ranked by different centrality measures.
-- **Multiple centrality metrics** — Degree, k-core, betweenness, closeness, PageRank, and MV17.
+- **Multiple centrality metrics** — Degree, k-core, betweenness, closeness, PageRank, clustering coefficient, k-core entropy, neighbor-core, neighbor-degree, and MV17.
 - **Dual interface** — PySide6 GUI with 5 functional tabs and a CLI batch experiment runner.
 - **Background processing** — All heavy computations run in worker threads with progress feedback.
 - **Batch analysis** — Process multiple networks and compare results in a single run.
@@ -141,7 +141,7 @@ Load edgelist → Build undirected graph → Extract GCC
       → K-shell decomposition for each node
       → Shannon entropy of neighbors' k-shell distribution → E_i
   → Step 2: Local Feature
-      → Sum of neighbors' neighbors' degree centrality
+      → Sum of neighbors' neighbors' degrees
       → log₂ transform → L_i
   → Combine: IF_i = E_i × L_i
   → Validate via SIR epidemic simulation (Monte Carlo, 5000 rounds)
@@ -151,30 +151,40 @@ Load edgelist → Build undirected graph → Extract GCC
 
 ```
 MV17/
-├── main.py                 # Entry point (GUI)
-├── main_window.py          # Main window with 5 tabs
-├── run_sir_batch.py        # CLI batch SIR experiment runner
+├── main.py                     # Entry point (GUI)
+├── main_window.py              # Main window with 5 tabs
+├── run_sir_batch.py            # CLI batch SIR experiment runner
 ├── gui_app/
+│   ├── __init__.py
 │   ├── core/
-│   │   ├── algorithm_adapter.py   # All algorithms (centrality, SIR, I/O)
+│   │   ├── __init__.py
+│   │   ├── algorithm_adapter.py    # All algorithms (centrality, SIR, I/O)
 │   │   ├── network_manager.py     # Shared data manager (Qt Signals)
 │   │   └── worker_threads.py      # Background workers (7 types)
 │   ├── tabs/
+│   │   ├── __init__.py
 │   │   ├── tab_network_io.py      # Tab 1: Load/save networks
 │   │   ├── tab_network_viz.py     # Tab 2: Network visualization
 │   │   ├── tab_node_attributes.py # Tab 3: Compute node metrics
 │   │   ├── tab_sir_experiment.py  # Tab 4: SIR propagation simulation
 │   │   └── tab_statistics.py      # Tab 5: Statistical analysis
 │   └── widgets/
+│       ├── __init__.py
 │       ├── matplotlib_canvas.py   # Matplotlib-Qt integration
 │       └── progress_dialog.py     # Progress dialog for long tasks
-├── edgelist/               # Network datasets (120 files)
-│   ├── classical network/  # 8 networks + auxiliary files
+├── edgelist/                   # Network datasets (120 files)
+│   ├── classical network/      # 9 networks + auxiliary files
 │   ├── collaboration network/  # 6 networks + auxiliary files
 │   ├── communication network/  # 4 networks + auxiliary files
-│   ├── other network/      # 7 networks + auxiliary files
-│   └── theoretical network/  # 4 networks + auxiliary files
-└── requirements.txt
+│   ├── other network/          # 7 networks + auxiliary files
+│   └── theoretical network/    # 4 networks + auxiliary files
+├── requirements.txt
+├── pyproject.toml
+├── LICENSE
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── CHANGELOG.md
+└── .gitignore
 ```
 
 ## Authors

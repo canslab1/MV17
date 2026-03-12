@@ -31,18 +31,13 @@ dependencies = [
     "networkx>=3.0",
     "numpy>=1.24",
     "matplotlib>=3.7",
+    "PySide6>=6.5",
 ]
-
-[project.optional-dependencies]
-gui = ["PySide6>=6.5"]
 
 [project.urls]
 Homepage = "https://github.com/canslab1/MV17"
 Repository = "https://github.com/canslab1/MV17"
 Issues = "https://github.com/canslab1/MV17/issues"
-
-[project.scripts]
-mv17 = "main:main"
 
 [tool.setuptools.packages.find]
 include = ["gui_app*"]
