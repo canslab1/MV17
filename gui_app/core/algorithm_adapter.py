@@ -2,7 +2,7 @@
 Algorithm adapter (演算法轉接層)
 ================================
 將舊版專案中散落於多個獨立腳本的核心演算法，統一封裝為無狀態(stateless)函式，
-並針對 Python 3 / NetworkX 2+ 進行相容性修正。
+並針對 Python 3 / NetworkX 3+ 進行相容性修正。
 
 舊版對應檔案總覽:
   - measure_node_attribute.py   : 節點屬性計算 (k-core, PageRank, clustering, entropy, MV17)
@@ -28,7 +28,7 @@ import math
 # ============================================================================
 # 常數定義
 # ============================================================================
-# 節點屬性鍵值 (與舊版 measure_node_attribute.py 第 24~44 行完全對應)
+# 節點屬性鍵值 (基於舊版 measure_node_attribute.py 第 24~44 行，新版另增 NODE_APPROX_BETWEENNESS)
 # 每個常數對應 net_attr[node_id] 字典中的一個 key
 NODE_ID = 'node_id'                     # 節點編號 (整數)
 NODE_POS_X = 'node_pos_x'              # 節點布局 X 座標 (來自 _pos.txt)

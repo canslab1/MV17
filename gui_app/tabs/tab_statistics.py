@@ -61,8 +61,8 @@ ATTR_CHOICES = [
     ('node_pagerank', 'PageRank'),           # PageRank 中心性
     ('node_cc', 'Clustering Coeff.'),        # 群聚係數
     ('node_k-core-entropy', 'K-Core Entropy'),  # k-core 熵
-    ('node_neighbor-core', 'Neighbor Core'),    # 鄰居 core 均值
-    ('node_neighbor-degree', 'Neighbor Degree'),# 鄰居度均值
+    ('node_neighbor-core', 'Neighbor Core'),    # log₂(鄰居的鄰居 k-core 值之和)
+    ('node_neighbor-degree', 'Neighbor Degree'),# log₂(鄰居的鄰居 degree 值之和)
     ('node_mv17', 'MV17 (Proposed)'),        # 提議方法 MV17
     ('node_betweenness', 'Betweenness'),     # 介數中心性
     ('node_closeness', 'Closeness'),         # 接近中心性

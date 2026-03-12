@@ -48,7 +48,7 @@ class NetworkManager(QObject):
     # network_cleared()
     #   觸發時機：使用者清除目前載入的網路時
     #   發出者：  clear() 方法被呼叫時觸發
-    #   監聯者：  - MainWindow（更新狀態列顯示「已清除」訊息）
+    #   監聽者：  - MainWindow（更新狀態列顯示「已清除」訊息）
     #            - tab_network_io（重置檔案選擇介面）
     #            - tab_node_attributes（清空屬性表格與繪圖）
     #            - tab_network_viz（清空視覺化圖表，停用操作按鈕）
@@ -84,7 +84,7 @@ class NetworkManager(QObject):
         super().__init__(parent)
 
         # ── 網路基礎資料 ──
-        self.G = None                   # NetworkX 圖物件（Graph / DiGraph）
+        self.G = None                   # NetworkX 圖物件（Graph，無向圖）
         self.network_name = ""          # 網路的顯示名稱（例如 "karate_club"）
         self.edgelist_path = ""         # 邊列表來源檔案的完整路徑
 

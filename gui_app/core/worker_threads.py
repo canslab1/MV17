@@ -151,16 +151,17 @@ class AttributeComputeWorker(QThread):
     網路屬性計算工作者
 
     對應舊版手動流程：
-      依序計算各種網路指標（節點數、邊數、密度、平均度、
-      度分布、群聚係數等），在舊版中需逐一呼叫多個函式。
+      依序計算各種節點屬性（k-core、PageRank、聚集係數、
+      k-core entropy、neighbor-core、neighbor-degree、MV17 等），
+      在舊版中需逐一呼叫多個函式。
 
     執行內容：
-      呼叫 algo.compute_all_attributes() 一次性計算所有網路屬性，
+      呼叫 algo.compute_all_attributes() 一次性計算所有節點屬性，
       並透過 progress_callback 即時回報各步驟的進度。
 
     finished 信號發射內容：
-      net_attr : 網路屬性資料結構（由 algorithm_adapter 定義，
-                 通常包含節點數、邊數、密度、平均度、度分布等）
+      net_attr : 節點屬性字典（由 algorithm_adapter 定義，
+                 結構為 {node_id: {attr_key: value}}，包含 12 種節點屬性）
     """
 
     # ── 信號定義 ──

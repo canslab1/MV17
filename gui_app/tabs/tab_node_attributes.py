@@ -50,8 +50,8 @@ from widgets.progress_dialog import ProgressDialog
 #   'node_pagerank'           - PageRank 值
 #   'node_cc'                 - 聚集係數（clustering coefficient）
 #   'node_k-core-entropy'     - k-核心熵（基於鄰居 k-core 分布的熵值）
-#   'node_neighbor-core'      - 鄰居平均 k-core 值
-#   'node_neighbor-degree'    - 鄰居平均度（degree）
+#   'node_neighbor-core'      - log₂(鄰居的鄰居 k-core 值之和)
+#   'node_neighbor-degree'    - log₂(鄰居的鄰居 degree 值之和)
 #   'node_mv17'               - MV17 指標（本研究提出的複合指標）
 #   'node_betweenness'        - 介數中心性（betweenness centrality）
 #   'node_closeness'          - 接近中心性（closeness centrality）
@@ -280,8 +280,8 @@ class TabNodeAttributes(QWidget):
           - CC（聚集係數）
           - degree（節點的度）
           - k-core entropy（k-核心熵，基於鄰居 k-core 分布計算的資訊熵）
-          - neighbor-core（鄰居平均 k-core）
-          - neighbor-degree（鄰居平均度）
+          - neighbor-core（log₂(鄰居的鄰居 k-core 值之和)）
+          - neighbor-degree（log₂(鄰居的鄰居 degree 值之和)）
           - MV17（本研究提出的複合影響力指標）
 
         計算完成後觸發 _on_basic_done() 回呼。
