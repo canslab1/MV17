@@ -1,0 +1,59 @@
+cff-version: 1.2.0
+title: >-
+  MV17: Network Spreader Analysis Tool
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Chung-Yuan
+    family-names: Huang
+    affiliation: >-
+      Department of Computer Science and Information
+      Engineering, Chang Gung University, Taiwan
+    email: gscott@mail.cgu.edu.tw
+  - given-names: Yu-Hsiang
+    family-names: Fu
+    affiliation: >-
+      Department of Computer Science, National Chiao Tung
+      University, Taiwan
+  - given-names: Chuen-Tsai
+    family-names: Sun
+    affiliation: >-
+      Department of Computer Science, National Chiao Tung
+      University, Taiwan
+repository-code: 'https://github.com/canslab1/MV17'
+url: 'https://github.com/canslab1/MV17'
+abstract: >-
+  A tool for identifying influential spreaders in complex
+  networks by combining global diversity (k-shell entropy)
+  and local topology features (neighbor degree sum) into a
+  single influence score (MV17), validated through SIR
+  epidemic simulations.
+keywords:
+  - complex networks
+  - influential spreaders
+  - k-shell decomposition
+  - node centrality
+  - SIR epidemic model
+  - network analysis
+license: MIT
+version: 1.0.0
+date-released: '2025-03-12'
+preferred-citation:
+  type: article
+  authors:
+    - given-names: Yu-Hsiang
+      family-names: Fu
+    - given-names: Chung-Yuan
+      family-names: Huang
+    - given-names: Chuen-Tsai
+      family-names: Sun
+  title: >-
+    Using global diversity and local topology features to
+    identify influential network spreaders
+  journal: 'Physica A: Statistical Mechanics and its Applications'
+  year: 2015
+  volume: '433'
+  pages: 344-355
+  doi: 10.1016/j.physa.2015.03.042

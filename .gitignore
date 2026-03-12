@@ -1,0 +1,43 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ===== Generated Output =====
+file/
+image/
+*.umsgpack
+
+# ===== macOS =====
+.DS_Store
+._.DS_Store
+
+# ===== Dropbox Conflict Copies =====
+*衝突的複本*
+*(conflicted copy*
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== Distribution / Packaging =====
+dist/
+build/
+*.egg-info/
+*.egg
+
+# ===== Windows =====
+Thumbs.db
+
+# ===== Claude Code =====
+.claude/
+
+# ===== Virtual Environment =====
+venv/
+.venv/
+env/
