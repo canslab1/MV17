@@ -1,0 +1,31 @@
+# MV17 — Multi-Attribute Node Importance Ranking in Complex Networks
+
+> MV17 is a GUI application for identifying influential spreaders in complex networks by combining global diversity (k-shell entropy) and local topology features into a robust two-step node ranking framework.
+
+## Author
+
+- Name: Chung-Yuan Huang (黃崇源)
+- Title: Full Professor, Department of CSIE, Chang Gung University
+- Email: gscott@mail.cgu.edu.tw
+- ORCID: https://orcid.org/0000-0002-8680-6755
+- Google Scholar: https://scholar.google.com/citations?user=0klfzfAAAAAJ&hl=en
+- Homepage: https://canslab1.github.io/
+
+## Software
+
+- Name: MV17
+- Language: Python
+- License: MIT
+- GitHub: https://github.com/canslab1/MV17
+- README: https://canslab1.github.io/MV17/
+
+## Publication
+
+Huang, C.-Y., Fu, Y.-S., & Chin, W.C.B. (2015). Node-based multi-attribute importance ranking method for identifying influential spreaders in complex networks. Physica A, 421, 411-422.
+
+
+## Lab
+
+- CANS Lab (Complex Adaptive Networks and Systems Laboratory)
+- Chang Gung University, Department of CSIE
+- Website: https://canslab1.github.io/
