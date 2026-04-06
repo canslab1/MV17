@@ -132,7 +132,390 @@
     <main class="content-wrapper">
         <article class="markdown-body" id="content" aria-live="polite">
             <h1>MV17 — Network Spreader Analysis Tool</h1>
-            <div class="loading">Loading README...</div>
+            <!-- PRERENDER-START -->
+<p><img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-blue">
+<img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green">
+<a href="https://canslab1.github.io/"><img alt="CANS Lab" src="https://img.shields.io/badge/CANS_Lab-Homepage-orange"></a></p>
+<p>A GUI application for identifying influential spreaders in complex networks using the <strong>MV17 measure</strong>, which combines <strong>global diversity</strong> (k-shell entropy) and <strong>local topology features</strong> (neighbor degree sum).</p>
+<h2 id="overview">Overview</h2>
+<p>Identifying the most influential spreaders in complex networks is critical for accelerating information dissemination, controlling epidemics, and optimizing viral marketing. Traditional centrality measures (degree, betweenness, closeness) each capture only one aspect of node importance.</p>
+<p>MV17 addresses this by proposing a two-step framework that considers both a node's <strong>global position</strong> across network core layers and its <strong>local connectivity</strong> to nearby high-degree neighbors. The framework is parameter-free and topology-driven, requiring no community labels or edge weights.</p>
+<h2 id="the-mv17-measure">The MV17 Measure</h2>
+<p>The MV17 measure identifies influential spreaders using a two-step framework:</p>
+<ol>
+<li><strong>Global Diversity (E)</strong> — Uses k-shell decomposition + Shannon entropy to measure how diversely a node's neighbors are distributed across network core layers.</li>
+<li><strong>Local Feature (L)</strong> — Uses log₂ of the sum of neighbors' neighbors' degrees to capture a node's local reach.</li>
+</ol>
+<p>The final influence score is: <strong>IF = E × L</strong></p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Two-step framework</strong> — Combines global diversity and local topology into a single influence score.</li>
+<li><strong>SIR simulation</strong> — Compare spreading capability of nodes ranked by different centrality measures.</li>
+<li><strong>Multiple centrality metrics</strong> — Degree, k-core, betweenness, approximate betweenness, closeness, PageRank, clustering coefficient, k-core entropy, neighbor-core, neighbor-degree, and MV17.</li>
+<li><strong>Dual interface</strong> — PySide6 GUI with 5 functional tabs and a CLI batch experiment runner.</li>
+<li><strong>Background processing</strong> — All heavy computations run in worker threads with progress feedback.</li>
+<li><strong>Batch analysis</strong> — Process multiple networks and compare results in a single run.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p><strong>Requirements:</strong> Python 3.10+</p>
+<pre><code class="language-bash">git clone https://github.com/canslab1/MV17.git
+cd MV17
+pip install -r requirements.txt
+</code></pre>
+<h3 id="dependencies">Dependencies</h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NetworkX</td>
+<td>Network analysis and graph algorithms</td>
+</tr>
+<tr>
+<td>NumPy</td>
+<td>Numerical computing</td>
+</tr>
+<tr>
+<td>Matplotlib</td>
+<td>Visualization and plotting</td>
+</tr>
+<tr>
+<td>PySide6</td>
+<td>Qt-based GUI</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage">Usage</h2>
+<h3 id="gui-mode">GUI Mode</h3>
+<pre><code class="language-bash">python main.py
+</code></pre>
+<p>Launches a desktop application with five tabs:</p>
+<ul>
+<li><strong>Network I/O</strong> — Browse and load edgelist files, extract giant connected component (GCC).</li>
+<li><strong>Visualization</strong> — Interactive network drawing with attribute-based node coloring and k-core decomposition view.</li>
+<li><strong>Node Attributes</strong> — Compute degree, k-core, PageRank, betweenness, closeness, MV17, and more.</li>
+<li><strong>SIR Experiment</strong> — Run SIR propagation simulations comparing multiple centrality measures.</li>
+<li><strong>Statistics</strong> — Basic network statistics, scatter plots, scatter matrix, propagation curves, batch analysis.</li>
+</ul>
+<h3 id="cli-mode">CLI Mode</h3>
+<pre><code class="language-bash">python run_sir_batch.py &lt;network_name&gt; &lt;edgelist_path&gt; &lt;beta&gt; &lt;output_file&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">python run_sir_batch.py netscience &quot;edgelist/classical network/netscience_gcc.txt&quot; 0.2 results.json
+</code></pre>
+<h2 id="network-datasets">Network Datasets</h2>
+<h3 id="datasets-from-the-paper-table-1">Datasets from the Paper (Table 1)</h3>
+<p>The following 13 networks were used in the published experiments. All datasets are included in this repository. Original data sourced from <a href="https://snap.stanford.edu/data/">Stanford SNAP</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Network</th>
+<th>N</th>
+<th>E</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collaboration</td>
+<td>ca-AstroPh</td>
+<td>17,903</td>
+<td>196,972</td>
+<td><code>collaboration network/ca_astroph_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Collaboration</td>
+<td>ca-CondMat</td>
+<td>21,363</td>
+<td>91,286</td>
+<td><code>collaboration network/ca_condmat_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Collaboration</td>
+<td>ca-GrQc</td>
+<td>4,158</td>
+<td>13,422</td>
+<td><code>collaboration network/ca_grqc_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Collaboration</td>
+<td>ca-HepPh</td>
+<td>11,204</td>
+<td>117,619</td>
+<td><code>collaboration network/ca_hepph_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Collaboration</td>
+<td>ca-HepTh</td>
+<td>8,638</td>
+<td>24,806</td>
+<td><code>collaboration network/ca_hepth_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Social</td>
+<td>Jazz-Musicians</td>
+<td>198</td>
+<td>2,742</td>
+<td><code>collaboration network/jazz_musicians_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Communication</td>
+<td>Email-Contacts</td>
+<td>12,625</td>
+<td>20,362</td>
+<td><code>communication network/email_contacts_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Communication</td>
+<td>Email-Enron</td>
+<td>33,696</td>
+<td>180,811</td>
+<td><code>communication network/email_enron_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>C.elegansNeural</td>
+<td>297</td>
+<td>2,148</td>
+<td><code>classical network/celegansneural_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Dolphins</td>
+<td>62</td>
+<td>159</td>
+<td><code>classical network/dolphins_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>LesMis</td>
+<td>77</td>
+<td>254</td>
+<td><code>classical network/lesmis_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>NetScience</td>
+<td>379</td>
+<td>914</td>
+<td><code>classical network/netscience_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>PolBlogs</td>
+<td>1,222</td>
+<td>16,714</td>
+<td><code>classical network/polblogs_gcc.txt</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> Jazz-Musicians is classified as "Social" following the published paper's Table 1, though the dataset file resides in the <code>collaboration network/</code> directory.</p>
+</blockquote>
+<h3 id="additional-datasets">Additional Datasets</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Network</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Classical</td>
+<td>Karate Club</td>
+<td><code>classical network/karate_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Classical</td>
+<td>Football</td>
+<td><code>classical network/football_list_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Classical</td>
+<td>US Air 97</td>
+<td><code>classical network/us_air97_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Communication</td>
+<td>Email URV</td>
+<td><code>communication network/email_urv_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Communication</td>
+<td>Wiki Vote</td>
+<td><code>communication network/wiki_vote_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>AS-20000102</td>
+<td><code>other network/as20000102_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Facebook Combined</td>
+<td><code>other network/facebook_combined_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Daily Network</td>
+<td><code>other network/daily_network_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>PGP Network</td>
+<td><code>other network/pgp_network_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Random Geometric</td>
+<td><code>other network/random_geometric_graph_1000_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>2-Cliques</td>
+<td><code>other network/2cliques_network_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>K-Core Example</td>
+<td><code>other network/k-core_network_gcc.txt</code></td>
+</tr>
+<tr>
+<td>Theoretical</td>
+<td>Barabási–Albert</td>
+<td><code>theoretical network/ba_n=100_k=5.txt</code></td>
+</tr>
+<tr>
+<td>Theoretical</td>
+<td>Erdős–Rényi</td>
+<td><code>theoretical network/random_n=100_k=5.txt</code></td>
+</tr>
+<tr>
+<td>Theoretical</td>
+<td>Regular</td>
+<td><code>theoretical network/regular_n=100_k=5.txt</code></td>
+</tr>
+<tr>
+<td>Theoretical</td>
+<td>Small-World</td>
+<td><code>theoretical network/sw_n=100_k=5_p=0.1.txt</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> Some networks include an additional raw edgelist file (without the <code>_gcc</code> suffix) representing the original network before GCC extraction. These files are provided for reference but are not used by the GUI or CLI tools.</p>
+</blockquote>
+<p>All edgelist files use whitespace-separated integer node pairs, one edge per line.</p>
+<h3 id="precomputed-auxiliary-files">Precomputed Auxiliary Files</h3>
+<p>For most networks, precomputed auxiliary files are included alongside the base edgelist:</p>
+<table>
+<thead>
+<tr>
+<th>Suffix</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_tbet.txt</code></td>
+<td>Betweenness centrality (node, value)</td>
+</tr>
+<tr>
+<td><code>_clos.txt</code></td>
+<td>Closeness centrality (node, value)</td>
+</tr>
+<tr>
+<td><code>_pos.txt</code></td>
+<td>Node layout positions (node, x, y)</td>
+</tr>
+</tbody>
+</table>
+<p>These files are generated by the GUI and cached for faster reloading. They can be safely deleted and regenerated.</p>
+<h2 id="algorithm-overview">Algorithm Overview</h2>
+<pre><code>Load edgelist → Build undirected graph → Extract GCC
+  → Step 1: Global Diversity
+      → K-shell decomposition for each node
+      → Shannon entropy of neighbors' k-shell distribution → E_i
+  → Step 2: Local Feature
+      → Sum of neighbors' neighbors' degrees
+      → log₂ transform → L_i
+  → Combine: IF_i = E_i × L_i
+  → Validate via SIR epidemic simulation (Monte Carlo, 5000 rounds)
+</code></pre>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>MV17/
+├── main.py                     # Entry point (GUI)
+├── main_window.py              # Main window with 5 tabs
+├── run_sir_batch.py            # CLI batch SIR experiment runner
+├── gui_app/
+│   ├── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── algorithm_adapter.py    # All algorithms (centrality, SIR, I/O)
+│   │   ├── network_manager.py     # Shared data manager (Qt Signals)
+│   │   └── worker_threads.py      # Background workers (7 types)
+│   ├── tabs/
+│   │   ├── __init__.py
+│   │   ├── tab_network_io.py      # Tab 1: Load/save networks
+│   │   ├── tab_network_viz.py     # Tab 2: Network visualization
+│   │   ├── tab_node_attributes.py # Tab 3: Compute node metrics
+│   │   ├── tab_sir_experiment.py  # Tab 4: SIR propagation simulation
+│   │   └── tab_statistics.py      # Tab 5: Statistical analysis
+│   └── widgets/
+│       ├── __init__.py
+│       ├── matplotlib_canvas.py   # Matplotlib-Qt integration
+│       └── progress_dialog.py     # Progress dialog for long tasks
+├── edgelist/                   # Network datasets (118 files)
+│   ├── classical network/      # 8 networks + auxiliary files
+│   ├── collaboration network/  # 6 networks + auxiliary files
+│   ├── communication network/  # 4 networks + auxiliary files
+│   ├── other network/          # 7 networks + auxiliary files
+│   └── theoretical network/    # 4 networks + auxiliary files
+├── requirements.txt
+├── pyproject.toml
+├── LICENSE
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── CHANGELOG.md
+├── index.html              # GitHub Pages landing page
+├── 404.html                # Custom 404 error page
+├── sitemap.xml             # XML sitemap for search engines
+├── robots.txt              # Crawler directives
+├── llms.txt                # AI-readable project summary
+└── .gitignore
+</code></pre>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><strong>PySide6 fails to install</strong> — Ensure you have Python 3.10+ and pip 21+. On Linux, you may need <code>sudo apt install qt6-base-dev</code>.</li>
+<li><strong><code>Cannot load backend 'QtAgg'</code></strong> — Reinstall PySide6: <code>pip install --force-reinstall PySide6</code>.</li>
+<li><strong>Betweenness is very slow</strong> — For networks with N &gt; 5,000, use "Approx. Betweenness" instead.</li>
+</ul>
+<h2 id="authors">Authors</h2>
+<ul>
+<li><strong>Chung-Yuan Huang</strong> (黃崇源) — Department of Computer Science and Information Engineering, Chang Gung University, Taiwan (gscott@mail.cgu.edu.tw)</li>
+<li><strong>Yu-Hsiang Fu</strong> (傅小羊) — Department of Computer Science, National Chiao Tung University, Taiwan</li>
+<li><strong>Chuen-Tsai Sun</strong> (孫春在) — Department of Computer Science, National Chiao Tung University, Taiwan</li>
+</ul>
+<h2 id="citation">Citation</h2>
+<p>If you use this software in your research, please cite:</p>
+<blockquote>
+<p>Fu, Y.-H., Huang, C.-Y., &amp; Sun, C.-T. (2015). Using global diversity and local topology features to identify influential network spreaders. <em>Physica A</em>, 433, 344–355. https://doi.org/10.1016/j.physa.2015.03.042</p>
+</blockquote>
+<p>See <code>CITATION.cff</code> for machine-readable citation metadata.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>Fu, Y.-H., Huang, C.-Y., &amp; Sun, C.-T. (2015). Using global diversity and local topology features to identify influential network spreaders. <em>Physica A: Statistical Mechanics and its Applications</em>, 433, 344–355. https://doi.org/10.1016/j.physa.2015.03.042</li>
+</ol>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License. See <a href="LICENSE">LICENSE</a> for details.</p>
+<!-- PRERENDER-END -->
         </article>
     </main>
     <footer class="site-footer">
