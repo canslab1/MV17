@@ -8,6 +8,7 @@ type: software
 authors:
   - given-names: Chung-Yuan
     family-names: Huang
+    orcid: "https://orcid.org/0000-0002-8680-6755"
     affiliation: >-
       Department of Computer Science and Information
       Engineering, Chang Gung University, Taiwan

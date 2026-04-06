@@ -189,6 +189,11 @@ MV17/
 ├── CITATION.cff
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
+├── index.html              # GitHub Pages landing page
+├── 404.html                # Custom 404 error page
+├── sitemap.xml             # XML sitemap for search engines
+├── robots.txt              # Crawler directives
+├── llms.txt                # AI-readable project summary
 └── .gitignore
 ```
 
