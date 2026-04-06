@@ -21,8 +21,8 @@
 
 ## Publication
 
-Huang, C.-Y., Fu, Y.-S., & Chin, W.C.B. (2015). Node-based multi-attribute importance ranking method for identifying influential spreaders in complex networks. Physica A, 421, 411-422.
-
+Fu, Y.-H., Huang, C.-Y., & Sun, C.-T. (2015). Using global diversity and local topology features to identify influential network spreaders. Physica A, 433, 344-355.
+DOI: https://doi.org/10.1016/j.physa.2015.03.042
 
 ## Lab
 
