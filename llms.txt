@@ -2,14 +2,20 @@
 
 > MV17 is a GUI application for identifying influential spreaders in complex networks by combining global diversity (k-shell entropy) and local topology features into a robust two-step node ranking framework.
 
-## Author
+## Authors
 
-- Name: Chung-Yuan Huang (黃崇源)
+- Name: Chung-Yuan Huang (黃崇源) (corresponding author)
 - Title: Full Professor, Department of CSIE, Chang Gung University
 - Email: gscott@mail.cgu.edu.tw
 - ORCID: https://orcid.org/0000-0002-8680-6755
 - Google Scholar: https://scholar.google.com/citations?user=0klfzfAAAAAJ&hl=en
 - Homepage: https://canslab1.github.io/
+
+- Name: Yu-Hsiang Fu
+- Affiliation: Department of Computer Science, National Chiao Tung University, Taiwan
+
+- Name: Chuen-Tsai Sun
+- Affiliation: Department of Computer Science, National Chiao Tung University, Taiwan
 
 ## Software
 
