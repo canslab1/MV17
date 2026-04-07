@@ -13,7 +13,13 @@
     <meta name="ahrefs-site-verification" content="b1f1573b895ead5763166ba77346fa86ecb9449ac31144c6786475fa1c2e1e5f">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="theme-color" content="#14532d">
+    <meta name="geo.region" content="TW-TAO">
+    <meta name="geo.placename" content="Guishan, Taoyuan, Taiwan">
+    <meta name="geo.position" content="25.0375;121.3892">
+    <meta name="ICBM" content="25.0375, 121.3892">
     <title>MV17 — Network Spreader Analysis Tool | CANS Lab</title>
     <meta name="description" content="Network Spreader Analysis Tool — identify influential nodes using global diversity and local topology　基於17種頂點指標的多重網路分析工具（MV17），用於網路節點重要性的多維度評估。">
     <meta name="author" content="Prof. Chung-Yuan Huang (黃崇源教授)">
@@ -28,18 +34,26 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="MV17 network analysis showing k-shell decomposition and influential spreader identification">
+    <meta property="og:see_also" content="https://github.com/canslab1/MV17">
+    <meta property="og:see_also" content="https://canslab1.github.io/">
+    <meta property="og:see_also" content="https://doi.org/10.1016/j.physa.2015.03.042">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MV17 — Network Spreader Analysis Tool | CANS Lab">
     <meta name="twitter:description" content="Network Spreader Analysis Tool — identify influential nodes using global diversity and local topology">
     <meta name="twitter:image" content="https://canslab1.github.io/images/software/mv17-kcore.png">
     <meta name="twitter:image:alt" content="MV17 network analysis showing k-shell decomposition and influential spreader identification">
-    <meta name="keywords" content="MV17, network spreader, influential nodes, k-shell, centrality, CANS Lab, 黃崇源, 長庚大學, 網路分析, 頂點指標, k-core, 中心性, 複雜網絡">
+    <meta name="twitter:label1" content="Language">
+    <meta name="twitter:data1" content="Python">
+    <meta name="twitter:label2" content="License">
+    <meta name="twitter:data2" content="MIT">
+    <meta name="keywords"content="MV17, network spreader, influential nodes, k-shell, centrality, CANS Lab, 黃崇源, 長庚大學, 網路分析, 頂點指標, k-core, 中心性, 複雜網絡">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://canslab1.github.io/MV17/">
     <link rel="alternate" hreflang="en" href="https://canslab1.github.io/MV17/">
     <link rel="alternate" hreflang="x-default" href="https://canslab1.github.io/MV17/">
     <link rel="alternate" hreflang="zh-TW" href="https://canslab1.github.io/MV17/">
     <link rel="icon" href="https://canslab1.github.io/images/csie.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://canslab1.github.io/images/icon-192.png" sizes="192x192">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -93,6 +107,53 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "CANS Lab", "item": "https://canslab1.github.io/" },
+            { "@type": "ListItem", "position": 2, "name": "MV17", "item": "https://canslab1.github.io/MV17/" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "name": "Using global diversity and local topology features to identify influential network spreaders",
+        "headline": "Using global diversity and local topology features to identify influential network spreaders",
+        "author": [
+            { "@type": "Person", "name": "Yu-Hsiang Fu" },
+            { "@type": "Person", "name": "Chung-Yuan Huang", "@id": "https://canslab1.github.io/#person" },
+            { "@type": "Person", "name": "Chuen-Tsai Sun" }
+        ],
+        "datePublished": "2015",
+        "isPartOf": { "@type": "Periodical", "name": "Physica A: Statistical Mechanics and its Applications" },
+        "volumeNumber": "433",
+        "pageStart": "344",
+        "pageEnd": "355",
+        "url": "https://doi.org/10.1016/j.physa.2015.03.042",
+        "sameAs": "https://doi.org/10.1016/j.physa.2015.03.042",
+        "publisher": { "@type": "Organization", "name": "Elsevier" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ResearchOrganization",
+        "name": "Complex Adaptive Networks and Systems Laboratory",
+        "alternateName": ["CANS Lab", "複雜適應性網絡與系統實驗室"],
+        "url": "https://canslab1.github.io/",
+        "parentOrganization": {
+            "@type": "CollegeOrUniversity",
+            "name": "Chang Gung University",
+            "alternateName": "長庚大學",
+            "url": "https://www.cgu.edu.tw/"
+        },
+        "member": { "@type": "Person", "@id": "https://canslab1.github.io/#person" }
+    }
+    </script>
 
     <!-- Dublin Core -->
     <meta name="DC.title" content="MV17 — Multi-Attribute Node Importance Ranking in Complex Networks">
@@ -106,14 +167,33 @@
     <meta name="DC.identifier" content="https://canslab1.github.io/MV17/">
     <meta name="DC.date" content="2025-03-12">
     <meta name="DC.rights" content="MIT License">
+    <meta name="DCTERMS.modified" content="2025-03-12">
+    <meta name="DC.coverage" content="Taiwan; International">
+    <meta name="DC.contributor" content="Yu-Hsiang Fu; Chuen-Tsai Sun">
+    <meta name="DC.relation" content="https://github.com/canslab1/MV17">
+    <meta name="DC.relation" content="https://canslab1.github.io/">
+    <meta name="DC.relation" content="https://doi.org/10.1016/j.physa.2015.03.042">
+    <meta name="DCTERMS.audience" content="Researchers; Graduate Students; Network Scientists">
 
     <!-- Highwire Press (Google Scholar) -->
+    <meta name="citation_title" content="Using global diversity and local topology features to identify influential network spreaders">
+    <meta name="citation_author" content="Fu, Yu-Hsiang">
+    <meta name="citation_author_institution" content="National Chiao Tung University">
     <meta name="citation_author" content="Huang, Chung-Yuan">
     <meta name="citation_author" content="黃崇源">
     <meta name="citation_author_institution" content="Chang Gung University">
     <meta name="citation_author_orcid" content="0000-0002-8680-6755">
+    <meta name="citation_author" content="Sun, Chuen-Tsai">
+    <meta name="citation_author_institution" content="National Chiao Tung University">
+    <meta name="citation_journal_title" content="Physica A: Statistical Mechanics and its Applications">
+    <meta name="citation_volume" content="433">
+    <meta name="citation_firstpage" content="344">
+    <meta name="citation_lastpage" content="355">
+    <meta name="citation_publication_date" content="2015">
+    <meta name="citation_doi" content="10.1016/j.physa.2015.03.042">
 
     <link rel="author" href="https://canslab1.github.io/humans.txt">
+    <link rel="security" type="text/plain" href="https://canslab1.github.io/security.txt">
 </head>
 <body>
     <a href="#content" class="skip-link">Skip to content</a>
@@ -123,7 +203,7 @@
                 <img src="https://canslab1.github.io/images/csie.png" alt="CANS Lab logo" width="32" height="32">
                 <span>CANS Lab</span>
             </a>
-            <nav class="header-nav">
+            <nav class="header-nav" aria-label="MV17 navigation">
                 <a href="https://canslab1.github.io/">Lab Home</a>
                 <a href="https://github.com/canslab1/MV17" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
             </nav>
@@ -518,7 +598,7 @@ pip install -r requirements.txt
 <!-- PRERENDER-END -->
         </article>
     </main>
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <p>&copy; CANS Lab, Chang Gung University &middot;
            <a href="https://canslab1.github.io/">canslab1.github.io</a></p>
     </footer>
