@@ -23,4 +23,10 @@
       <image:title>MV17 research paper figure — MV17 by Prof. Chung-Yuan Huang (黃崇源教授)</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://canslab1.github.io/MV17/llms.txt</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
